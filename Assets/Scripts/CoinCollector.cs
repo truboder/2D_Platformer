@@ -11,7 +11,7 @@ public class CoinCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Coin")
+        if (collision.GetComponent<Coin>())
         {
             _coins++;
             _coinNumber.text = _coins.ToString();

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public static int StringToHash;
+
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _moveDelta;
 
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
+    private int _idleHash = Animator.StringToHash("Moved");
 
     private bool _isGrounded;
     private float _moveHorizontal;
@@ -35,14 +38,14 @@ public class Movement : MonoBehaviour
         if (_moveHorizontal > _moveDelta)
         {
             rotate.y = 180;
-            _animator.SetTrigger("Moved");
+            _animator.SetTrigger(_idleHash);
             _rigidbody2D.AddForce(new Vector2(_moveHorizontal * _moveSpeed, 0f), ForceMode2D.Impulse);
             _rigidbody2D.transform.rotation = Quaternion.Euler(rotate);
         }
         else if (_moveHorizontal < -_moveDelta)
         {
             rotate.y = 0;
-            _animator.SetTrigger("Moved");
+            _animator.SetTrigger(_idleHash);
             _rigidbody2D.AddForce(new Vector2(_moveHorizontal * _moveSpeed, 0f), ForceMode2D.Impulse);
             _rigidbody2D.transform.rotation = Quaternion.Euler(rotate);
         }
