@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 175065221}
   - component: {fileID: 175065220}
   - component: {fileID: 175065219}
+  - component: {fileID: 175065222}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Platform
@@ -388,6 +389,18 @@ Transform:
   m_Father: {fileID: 555919867}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &175065222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175065218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e20ff522fa71e43a5a9c7845141ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &177318212 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5544899223406692752, guid: bfe30da9ac556e14bb5fc0c3866dc8d5, type: 3}
@@ -577,11 +590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013857073264, guid: 315058484cf2044ce8dcb608b4678ff6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.48
+      value: -6.23
       objectReference: {fileID: 0}
     - target: {fileID: 4000013857073264, guid: 315058484cf2044ce8dcb608b4678ff6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 4000013857073264, guid: 315058484cf2044ce8dcb608b4678ff6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -731,6 +744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 555919867}
+  - component: {fileID: 555919868}
   m_Layer: 0
   m_Name: Platforms
   m_TagString: Untagged
@@ -757,6 +771,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &555919868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555919866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24f95d0b2c69034f89a3a30c883057a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &580118695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5544899223406692752, guid: bfe30da9ac556e14bb5fc0c3866dc8d5, type: 3}
@@ -1126,26 +1152,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1134059810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134059807}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c5f615b1842fb4790e8910d470ff92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jumpForce: 250
-  _speed: 200
-  _jumpAxisName: Jump
-  _walkAxisName: Horizontal
-  _isGrounded: 0
-  _body: {fileID: 0}
-  _animator: {fileID: 0}
-  _previous: 0
 --- !u!114 &1134059811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,6 +1193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca53dbec08493464db15931654887518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSpeed: 3
+  _jumpForce: 60
+  _moveDelta: 0.1
 --- !u!61 &1134059821
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1224,6 +1233,7 @@ GameObject:
   - component: {fileID: 1179483212}
   - component: {fileID: 1179483211}
   - component: {fileID: 1179483210}
+  - component: {fileID: 1179483213}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Platform
@@ -1324,6 +1334,18 @@ Transform:
   m_Father: {fileID: 555919867}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179483213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179483209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e20ff522fa71e43a5a9c7845141ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1187781848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5544899223406692752, guid: bfe30da9ac556e14bb5fc0c3866dc8d5, type: 3}
@@ -1626,6 +1648,7 @@ GameObject:
   - component: {fileID: 1508471175}
   - component: {fileID: 1508471174}
   - component: {fileID: 1508471173}
+  - component: {fileID: 1508471176}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Platform
@@ -1726,6 +1749,18 @@ Transform:
   m_Father: {fileID: 555919867}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1508471176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508471172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e20ff522fa71e43a5a9c7845141ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1606914558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5544899223406692752, guid: bfe30da9ac556e14bb5fc0c3866dc8d5, type: 3}
@@ -1972,6 +2007,7 @@ GameObject:
   - component: {fileID: 2012010067}
   - component: {fileID: 2012010066}
   - component: {fileID: 2012010065}
+  - component: {fileID: 2012010068}
   m_Layer: 0
   m_Name: Square
   m_TagString: Platform
@@ -2072,6 +2108,18 @@ Transform:
   m_Father: {fileID: 555919867}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2012010068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012010064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e20ff522fa71e43a5a9c7845141ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2023973973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5544899223406692752, guid: bfe30da9ac556e14bb5fc0c3866dc8d5, type: 3}

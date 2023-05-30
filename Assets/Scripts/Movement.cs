@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Movement : MonoBehaviour
 {
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _jumpForce;
+    [SerializeField] private float _moveDelta;
+
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
 
-    private float _movespeed;
-    private float _jumpForce;
     private bool _isGrounded;
     private float _moveHorizontal;
     private float _moveVertical;
@@ -16,13 +18,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
-
         _rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
-
-        _movespeed = 3f;
-        _jumpForce = 60f;
         _isGrounded = false;
-
     }
 
     private void Update()
@@ -35,22 +32,22 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 rotate = transform.eulerAngles;
 
-        if (_moveHorizontal > 0.1f)
+        if (_moveHorizontal > _moveDelta)
         {
             rotate.y = 180;
             _animator.SetTrigger("Moved");
-            _rigidbody2D.AddForce(new Vector2(_moveHorizontal * _movespeed, 0f), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(new Vector2(_moveHorizontal * _moveSpeed, 0f), ForceMode2D.Impulse);
             _rigidbody2D.transform.rotation = Quaternion.Euler(rotate);
         }
-        else if (_moveHorizontal < -0.1f)
+        else if (_moveHorizontal < -_moveDelta)
         {
             rotate.y = 0;
             _animator.SetTrigger("Moved");
-            _rigidbody2D.AddForce(new Vector2(_moveHorizontal * _movespeed, 0f), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(new Vector2(_moveHorizontal * _moveSpeed, 0f), ForceMode2D.Impulse);
             _rigidbody2D.transform.rotation = Quaternion.Euler(rotate);
         }
 
-        if (!_isGrounded && _moveVertical > 0.1f)
+        if (!_isGrounded && _moveVertical > _moveDelta)
         {
             _rigidbody2D.AddForce(new Vector2(0f, _moveVertical * _jumpForce), ForceMode2D.Impulse);
         }
@@ -58,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.GetComponent<Platform>() != null)
         {
             _isGrounded = false;
         }
@@ -66,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.GetComponent<Platform>() != null)
         {
             _isGrounded = true;
         }

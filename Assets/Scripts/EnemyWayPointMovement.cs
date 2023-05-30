@@ -29,7 +29,6 @@ public class EnemyWayPointMovement : MonoBehaviour
         if (transform.position == target.position)
         {
             _currentPoint++;
-            Debug.Log(_currentPoint);
 
             Rotate(Vector2.zero);
 

@@ -15,7 +15,6 @@ public class CoinCollector : MonoBehaviour
         {
             _coins++;
             _coinNumber.text = _coins.ToString();
-            Debug.Log(_coins);
             Destroy(collision.gameObject);
         }
     }
